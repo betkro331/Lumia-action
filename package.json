@@ -1,0 +1,33 @@
+{
+  "name": "cypress-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test-ui": "cypress open --browser chrome",
+    "test": "cypress run --browser chrome",
+    "start": "node server.js",
+    "make-steps": "node _auto-generate-step-definitions.js",
+    "git-action-run-test": "concurrently -s last \"npm run start\" \"npm run test\""
+  },
+  "cypress-cucumber-preprocessor": {
+    "json": {
+      "enabled": true
+    },
+    "stepDefinitions": [
+      "/specs/step_definitions/**/*.js"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "12.2",
+    "@cypress/webpack-preprocessor": "5.12",
+    "concurrently": "^7.6.0",
+    "cypress": "10.7"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
